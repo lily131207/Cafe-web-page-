@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew & Bite - Premium Coffee & Delicious Bites</title>
+    <meta name="description" content="Your neighborhood coffee shop serving the finest brews and delectable treats. Order online for pickup or delivery!">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Brew & Bite</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#order" class="nav-link">Order</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span>⭐ Award-Winning Coffee</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Brew Joy.<br>
+                        <span class="hero-accent">Bite Bliss.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Discover the perfect blend of artisanal coffee and delectable treats in our cozy neighborhood café.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="showSection('order')">Order Now</button>
+                        <button class="btn btn-secondary" onclick="showSection('menu')">View Menu</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">5K+</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Menu Items</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4.9★</div>
+                            <div class="stat-label">Customer Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Today's Specials -->
+            <div class="specials-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Today's Specials</h2>
+                        <p>Discover our carefully crafted daily specials, made with the finest ingredients and served with love.</p>
+                    </div>
+                    <div class="specials-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track" id="specialsTrack">
+                                <!-- Specials will be loaded here by JavaScript -->
+                            </div>
+                        </div>
+                        <button class="carousel-btn carousel-prev" onclick="prevSpecial()">&lt;</button>
+                        <button class="carousel-btn carousel-next" onclick="nextSpecial()">&gt;</button>
+                        <div class="carousel-dots" id="specialsDots"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="features-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Why Choose Brew & Bite?</h2>
+                        <p>We're more than just a coffee shop. We're your neighborhood's gathering place for quality, comfort, and community.</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">☕</div>
+                            <h3>Organic Beans</h3>
+                            <p>Ethically sourced, premium organic coffee beans from sustainable farms around the world.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Fast Service</h3>
+                            <p>Quick and efficient service without compromising on quality. Your perfect cup in minutes.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">❤️</div>
+                            <h3>Cozy Vibes</h3>
+                            <p>A warm, welcoming atmosphere perfect for work, study, or catching up with friends.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="page-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Menu</h2>
+                    <p>Discover our carefully crafted selection of coffee, teas, and delicious food made with the finest ingredients.</p>
+                </div>
+                
+                <div class="menu-tabs">
+                    <button class="tab-btn active" onclick="showMenuCategory('hot-drinks')">Hot Drinks</button>
+                    <button class="tab-btn" onclick="showMenuCategory('cold-brews')">Cold Brews</button>
+                    <button class="tab-btn" onclick="showMenuCategory('teas')">Teas</button>
+                    <button class="tab-btn" onclick="showMenuCategory('snacks')">Snacks</button>
+                    <button class="tab-btn" onclick="showMenuCategory('pastries')">Pastries</button>
+                </div>
+
+                <div class="menu-content" id="menuContent">
+                    <!-- Menu items will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Section -->
+        <section id="order" class="page-section">
+            <div class="container">
+                <h2 class="section-title">Complete Your Order</h2>
+                
+                <div class="order-layout">
+                    <div class="order-details">
+                        <div class="order-card">
+                            <h3>Order Type</h3>
+                            <div class="order-type-tabs">
+                                <button class="order-tab active" onclick="setOrderType('pickup')">🏪 Pickup</button>
+                                <button class="order-tab" onclick="setOrderType('delivery')">🚚 Delivery</button>
+                            </div>
+                            <div id="orderTypeContent">
+                                <div class="form-group">
+                                    <label>Pickup Time</label>
+                                    <select class="form-control">
+                                        <option>ASAP (15-20 min)</option>
+                                        <option>30 minutes</option>
+                                        <option>1 hour</option>
+                                        <option>2 hours</option>
+                                    </select>
+                                </div>
+                                <div class="pickup-location">
+                                    <strong>📍 Pickup Location</strong>
+                                    <p>123 Coffee Street, Brew City, BC 12345</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-card">
+                            <h3>Payment Details</h3>
+                            <div class="form-group">
+                                <label>Card Number</label>
+                                <input type="text" class="form-control" placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Expiry Date</label>
+                                    <input type="text" class="form-control" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group">
+                                    <label>CVV</label>
+                                    <input type="text" class="form-control" placeholder="123">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Cardholder Name</label>
+                                <input type="text" class="form-control" placeholder="John Doe">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-summary">
+                        <div class="order-card">
+                            <h3>Order Summary</h3>
+                            <div class="cart-items" id="cartItems">
+                                <!-- Cart items will be loaded here -->
+                            </div>
+                        </div>
+
+                        <div class="order-card">
+                            <div class="order-total">
+                                <div class="total-row">
+                                    <span>Subtotal</span>
+                                    <span id="subtotal">₹1,097.00</span>
+                                </div>
+                                <div class="total-row">
+                                    <span>Tax</span>
+                                    <span id="tax">₹87.76</span>
+                                </div>
+                                <div class="total-row">
+                                    <span>Tip</span>
+                                    <span id="tip">₹0.00</span>
+                                </div>
+                                <hr>
+                                <div class="total-row final-total">
+                                    <span>Total</span>
+                                    <span id="finalTotal">₹1,184.76</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-full" onclick="placeOrder()">Place Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Brew & Bite</h3>
+                    <p>Your neighborhood coffee shop serving the finest brews and delectable treats.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#order">Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📍 123 Coffee Street, Brew City, BC 12345</p>
+                    <p>📞 (555) 123-4567</p>
+                    <p>✉️ hello@brewandbite.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Brew & Bite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
